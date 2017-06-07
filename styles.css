@@ -90,7 +90,7 @@ body {
       padding: 0 48px 0 24px;
       position: relative;
       overflow: hidden;
-      font-family: roboto;
+      font-family: lato;
       text-align: center; }
       .materialSelect .select li:before {
         content: ''; }
