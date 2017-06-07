@@ -1,4 +1,4 @@
-//setup
+//setup app
 var myApp = angular.module('retrieve',[]);
 
 //main controller

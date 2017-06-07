@@ -10,10 +10,21 @@
 	<!-- get ng-app -->
 	<script src="app.js"></script>
 
+	<!-- grab scripts here (later on fix and use require)-->
+	<script src="directives/selectBox/selectBoxDrtv.js"></script>
+
+	<!-- import stylesheet -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+
 </head>
 <body ng-app="retrieve" ng-controller="main">
 
+	<!-- have a page container directive that holds the actual index ?-->
 	<p>{{foo}}</p>
+
+	<!-- test out component works -->
+	<select-box></select-box>
 
 </body>
 </html>
