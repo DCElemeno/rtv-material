@@ -5,7 +5,50 @@ angular.module('retrieve').directive('selectBox', function() {
 		templateUrl: 'directives/selectBox/selectBox.html',
 		controllerAs: 'select',
 		controller: ['$scope', function($scope){
+			/*  PLANS:
+			 *	options:
+			 *		1. to open only down
+			 *		2. to have a submit button
+			 *		3. multiselect vs single select
+			 *		4. search input
+			 *	maybe try to minimize the amount of jquery?
+			*/
 			var _this = this;
+
+			//define some test case stuff 
+			//(later will be passed through scope)
+			_this.options = [
+				{name:'Example 1', value:false},
+				{name:'Example 2', value:false},
+				{name:'Example 3', value:false},
+			];
+
+			//updates the currently selected choices
+			function refreshOptions() {
+				_this.currentlySelected = [];
+				angular.forEach(_this.options, function(option){
+					if (option.value) {
+						_this.currentlySelected.push(option.name);
+					}
+				});
+			} 
+
+			//update value clicked and refresh selected
+			refreshOptions();
+			_this.updateOptions = function(option) {
+				option.value = !option.value;
+				refreshOptions();
+
+			};
+
+			//clear selections
+			_this.clearSelections = function() {
+				angular.forEach(_this.options, function(option){
+					option.value = false;
+				});
+				refreshOptions();
+			};
+
 		}],
 		link: function(scope, elem, attrs) {
 
@@ -13,21 +56,20 @@ angular.module('retrieve').directive('selectBox', function() {
 
 			    var closeSelectTimeout;
 
+			    //hides list
 			    function hideMaterialList(parent){
-			        parent.css({'overflow': 'hidden'
-			        }).removeClass('isOpen');
+			        parent.css({'overflow': 'hidden'}).removeClass('isOpen');
 			        clearTimeout(closeSelectTimeout);
 			        closeSelectTimeout = setTimeout(function(){
-			            parent.parent().css({
-			                'z-index': 0  
-			            });
+			            parent.parent().css({'z-index': 0 });
 			        }, 200);
 			    }
 
+			    //opening animation
 			    $(document.body).on('mousedown', '.materialBtn, .select li', function(event){
 			        if(parseFloat($(this).css('opacity')) > 0 && $(document).width() >= 1008){
 			            var maxWidthHeight = Math.max($(this).width(), $(this).height());
-			            if($(this).find("b.drop").length == 0 || $(this).find("b.drop").css('opacity') != 1) {
+			            if ($(this).find("b.drop").length == 0 || $(this).find("b.drop").css('opacity') != 1) {
 			                // .drop opacity is 1 when it's hidden...css animations
 			                drop = $('<b class="drop" style="width:'+ maxWidthHeight +'px;height:'+ maxWidthHeight +'px;"></b>').prependTo(this);
 			            }
@@ -51,6 +93,7 @@ angular.module('retrieve').directive('selectBox', function() {
 			        e.preventDefault();
 			    })
 
+			    //selecting an actual choice
 			    var selectTimeout;
 			    $(document.body).on('click', '.select li', function() {
 			        var parent = $(this).parent();
@@ -99,6 +142,7 @@ angular.module('retrieve').directive('selectBox', function() {
 			        }
 			    });
 
+			    // verification (is this used?)
 			    $('.materialInput input').on('change input verify', function(){
 			        if ($(this).attr('required') == 'true'){
 			            if($(this).val().trim().length){
@@ -119,6 +163,7 @@ angular.module('retrieve').directive('selectBox', function() {
 			        }
 			    });
 
+			    //on blur
 			    $(document.body).on('click', function(e) {
 			        var clicked;
 			        if ($(e.target).hasClass('materialSelect')) {
@@ -129,6 +174,10 @@ angular.module('retrieve').directive('selectBox', function() {
 			        }
 			        else if ($(e.target).parent().hasClass('select')) {
 			            clicked = $(e.target).parent();
+			        }
+
+			        if (!clicked) {
+			        	//...heres where the empty case is handled
 			        }
 
 			        if ($(e.target).hasClass('materialSelect') || 
