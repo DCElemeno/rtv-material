@@ -100,7 +100,6 @@ angular.module('retrieve').directive('selectBox', function() {
 
 			        if ($(this).attr('data-selected') == 'true') {
 			            $(this).removeAttr('data-selected');
-
 			        } else {
 			            if ($(this).attr('data-value') != 'default') {
 			                $(this).attr('data-selected', 'true');
@@ -110,11 +109,12 @@ angular.module('retrieve').directive('selectBox', function() {
 			        clearTimeout(selectTimeout);
 			        if (parent.hasClass('isOpen'))
 			        {
-			            if(parent.parent().hasClass('required')){
-			                if(parent.children('[data-selected]').attr('data-value')){
+			            if (parent.parent().hasClass('required'))
+			            {
+			                if (parent.children('[data-selected]').attr('data-value')){
 			                    parent.parents('.materialSelect').removeClass('error empty');
 			                }
-			                else{
+			                else {
 			                    parent.parents('.materialSelect').addClass('error empty');
 			                }
 			            }
@@ -123,20 +123,17 @@ angular.module('retrieve').directive('selectBox', function() {
 			            var pos = Math.max(($('li[data-selected]', parent).index() - 2) * 48, 0);
 			            parent.addClass('isOpen');
 			            parent.parent().css('z-index', '999');
-			            if($(document).width() >= 1008){
+			            
+			            if ($(document).width() >= 1008)
+			            {
 			                var i = 1;
 			                selectTimeout = setInterval(function(){
-			                    i++;
-			                    parent.scrollTo(pos, 50);
-			                    if(i == 2){
-			                        parent.css('overflow', 'auto');
-			                    }
-			                    if(i >= 4){
-			                        clearTimeout(selectTimeout);
-			                    }
+			                    i++; parent.scrollTo(pos, 50);
+			                    if (i == 2) { parent.css('overflow', 'auto'); }
+			                    if (i >= 4) { clearTimeout(selectTimeout); }
 			                }, 100);
 			            }
-			            else{
+			            else {
 			                parent.css('overflow', 'auto').scrollTo(pos, 0);
 			            }
 			        }
@@ -144,11 +141,12 @@ angular.module('retrieve').directive('selectBox', function() {
 
 			    // verification (is this used?)
 			    $('.materialInput input').on('change input verify', function(){
-			        if ($(this).attr('required') == 'true'){
-			            if($(this).val().trim().length){
+			        if ($(this).attr('required') == 'true')
+			        {
+			            if ($(this).val().trim().length) {
 			                $(this).parent().removeClass('error empty');
 			            }
-			            else{
+			            else {
 			                $(this).parent().addClass('error empty');
 			                $(this).val('');
 			            }
@@ -175,9 +173,11 @@ angular.module('retrieve').directive('selectBox', function() {
 			        else if ($(e.target).parent().hasClass('select')) {
 			            clicked = $(e.target).parent();
 			        }
-
+			        
 			        if (!clicked) {
 			        	//...heres where the empty case is handled
+			        	clicked = $('body').find('.materialSelect .select').first();
+
 			        }
 
 			        if ($(e.target).hasClass('materialSelect') || 
