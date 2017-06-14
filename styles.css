@@ -151,5 +151,70 @@ body {
     transition: background 0.2s ease, border 0.2s ease, top 0.2s ease, height 0.2s ease, box-shadow 0.2s ease; }
     .materialSelect .select li {
       transition: height 0.2s linear, opacity 0.2s ease, margin 0.2s linear; } }
+.rtvmd-card {
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23), 0 3px 6px 0 rgba(0, 0, 0, 0.16); }
+  .rtvmd-card .rtvmd-tabs {
+    padding-left: 0 !important;
+    background-color: #F5F5F5;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+  .rtvmd-card .rtvmd-card-header {
+    height: 56px;
+    width: 100%;
+    border-radius: 2px 2px 0 0;
+    background-color: #F5F5F5;
+    padding: 16px 24px 16px 24px; }
+    .rtvmd-card .rtvmd-card-header .rtvmd-header-text {
+      float: left;
+      color: rgba(0, 0, 0, 0.54);
+      font-family: Lato;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 24px; }
+    .rtvmd-card .rtvmd-card-header .rtvmd-header-buttons {
+      float: right; }
+    .rtvmd-card .rtvmd-card-header .mdi {
+      float: left;
+      margin-top: 3px;
+      margin-right: 12px; }
+  .rtvmd-card .rtvmd-card-description {
+    height: 36px;
+    width: 100%;
+    background-color: #F5F5F5;
+    padding: 0 24px 15px 24px;
+    font-family: Lato;
+    font-size: 14px;
+    line-height: 20px; }
+  .rtvmd-card .rtvmd-card-body {
+    background-color: #FFFFFF;
+    padding-bottom: 16px; }
+    .rtvmd-card .rtvmd-card-body .rtvmd-body-wrapper {
+      margin: 32px 24px 0 24px; }
+  .rtvmd-card .rtvmd-card-footer {
+    min-height: 36px;
+    margin: 0 24px 0 24px; }
+  .rtvmd-card .rtvmd-hr {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.12); }
+
+/****************************
+  Pete's new ideas styling
+*****************************/
+/*.rtvmd-card-header {
+  background-color: #FFF !important;
+}
+
+.rtvmd-hr {
+  width:95% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rtvmd-card {
+  box-shadow: none;
+  border: 1px solid rgba(0,0,0,0.12) !important;
+}*/
 
 /*# sourceMappingURL=styles.css.map */

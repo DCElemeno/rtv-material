@@ -176,7 +176,6 @@ angular.module('retrieve').directive('selectBox', function() {
 			        
 			        if (!clicked) {
 			        	//...heres where the empty case is handled
-			        	clicked = $('body').find('.materialSelect .select').first();
 
 			        }
 
@@ -186,9 +185,9 @@ angular.module('retrieve').directive('selectBox', function() {
 			            hideMaterialList($('.select').not(clicked));
 			        }
 			        else {
-			            if($('.select').hasClass('isOpen')){
+			            if ($('.select').hasClass('isOpen')){
 			                hideMaterialList($('.select'));
-			            }
+			            } 
 			        }
 			    });
 

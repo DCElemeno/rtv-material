@@ -1,0 +1,92 @@
+<div class="rtvmd-card"
+     style="{{frm.styling}}"
+     ng-click="frm.goToUrl()">
+
+    <!-- header -->
+    <div class="rtvmd-card-header" ng-if="frm.hasHeader">
+
+        <!-- icon -->
+        <i ng-if="frm.hasHeaderIcon"
+           class="mdi {{frm.icon}} "
+           ng-style="{'color':(!!frm.color) ? frm.color : '#757575'}"></i>
+
+        <!-- title -->
+        <span class="rtvmd-header-text">{{frm.header}}</span>
+
+        <!--TODO: (improvement)-->
+        <!--add an ng-transclude slot for header buttons / content-->
+
+    </div>
+
+    <!-- description -->
+    <div class="rtvmd-card-description" ng-if="frm.hasDescription">
+        <span>{{frm.description}}</span>
+    </div>
+
+    <!-- tabs -->
+    <!--
+        TODO: (improvement)
+        1. tabs should be ng-transclude slot?
+        2. need to either clean up the bottom code,
+            or
+          allow content of body to be full size, and have tabs be transcluded, possibly as a separate directive
+    -->
+    <!--<div class="rtvmd-tabs" ng-if="frm.hasTabs">
+
+        <div ng-repeat="tab in frm.tabs">
+
+            <button
+                ng-click="frm.changeTab(tab)"
+                class="rtvmd-tab rtvmd-button"
+                ng-class="{'current': frm.activeTab == tab,'title-color': frm.activeTab == tab}">
+
+                &lt;!&ndash; tab name &ndash;&gt;
+                <div style="position:relative">
+                    <span class="rtvmd-tab-title">{{tab}}</span>
+                </div>
+
+            </button>
+
+            &lt;!&ndash; underline bar &ndash;&gt;
+            <span class="bar"
+                  ng-class="{'tab-border-top-color':frm.activeTab == tab}"
+                  style="border-top:4px solid #2196F3;">
+            </span>
+
+        </div>
+
+    </div>-->
+
+
+    <!-- seperator bar -->
+    <div class="rtvmd-hr" ng-if="frm.hasHeader || frm.hasDescription"></div>
+
+    <!-- body -->
+    <div class="rtvmd-card-body">
+
+        <!-- content -->
+        <div class="rtvmd-body-wrapper" style="{{(!!frm.tabContent)?'margin:0!important;':''}}">
+            <div ng-transclude></div>
+        </div>
+
+        <!-- footer -->
+        <!--
+            TODO: (improvement)
+            make an ng-transclude slot for footer buttons
+                or
+            make a standard for implementing the buttons
+        -->
+        <div class="rtvmd-card-footer" ng-if="frm.hasFooter">
+
+            <rtv-button
+                class="{{frm.footerRowClass}}"
+                ng-if="frm.hasCancel"
+                data-dismiss="modal"
+                text="{{frm.cancel}}"
+                color="#106cc8"
+                type="flat">
+            </rtv-button>
+
+        </div>
+    </div>
+</div>

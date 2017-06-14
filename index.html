@@ -12,6 +12,7 @@
 
 	<!-- grab scripts here (later on fix and use require)-->
 	<script src="directives/selectBox/selectBoxDrtv.js"></script>
+	<script src="directives/mdCard/mdCardDrtv.js"></script>
 
 	<!-- import stylesheet -->
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -24,7 +25,13 @@
 	<!-- <p>{{foo}}</p> -->
 
 	<!-- test out component works -->
-	<select-box></select-box>
+	<rtv-card options="{header:'Test RTVMD Card'}">
+
+		<select-box></select-box>
+
+	</rtv-card>
+
+	
 
 </body>
 </html>
