@@ -163,7 +163,7 @@ body {
     height: 56px;
     width: 100%;
     border-radius: 2px 2px 0 0;
-    background-color: #F5F5F5;
+    /* background-color: #F5F5F5; */
     padding: 16px 24px 16px 24px; }
     .rtvmd-card .rtvmd-card-header .rtvmd-header-text {
       float: left;
@@ -202,19 +202,52 @@ body {
 /****************************
   Pete's new ideas styling
 *****************************/
-/*.rtvmd-card-header {
+/* .rtvmd-card-header {
   background-color: #FFF !important;
-}
-
+} */
 .rtvmd-hr {
-  width:95% !important;
+  width: 95% !important;
   margin-left: auto;
-  margin-right: auto;
-}
+  margin-right: auto; }
 
-.rtvmd-card {
+/* .rtvmd-card {
   box-shadow: none;
   border: 1px solid rgba(0,0,0,0.12) !important;
-}*/
+}
+ */
+.map-card {
+  margin: 20px;
+  height: 512px;
+  width: 768px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 4px 8px 0 rgba(0, 0, 0, 0.24); }
+  .map-card .md-header {
+    height: 56px;
+    padding: 16px 24px; }
+    .map-card .md-header span {
+      height: 24px;
+      width: 217px;
+      color: #595959;
+      font-family: Lato;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 24px; }
+  .map-card .mapDivStyle {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 76px 28px;
+    overflow: hidden;
+    width: 768px;
+    height: 456px;
+    z-index: 0;
+    cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; }
+
+.map-label {
+  margin-left: 50px;
+  width: 200px;
+  height: 140px;
+  padding: 20px;
+  overflow: wrap;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 4px 8px 0 rgba(0, 0, 0, 0.24); }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,47 @@
+.map-card {
+  margin:20px;
+  height:512px;
+  width:768px;
+  box-shadow: 
+     0 4px 4px 0 rgba(0,0,0,0.12), 
+     0 4px 8px 0 rgba(0,0,0,0.24);
+     
+  .md-header {
+    height:56px;
+    padding:16px 24px;
+    span {
+      	height: 24px;	
+        width: 217px;	
+        color: #595959;	
+        font-family: Lato;	
+        font-size: 20px;	
+        font-weight: 300;	
+        line-height: 24px;
+    }
+   
+  }   
+  
+  .mapDivStyle {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin:76px 28px;
+    overflow: hidden;
+    width: 768px;
+    height: 456px;
+    z-index: 0;
+    cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default;
+  }
+}
+
+.map-label {
+  margin-left:50px;
+  width:200px;
+  height:140px;
+  padding:20px;
+  overflow:wrap;
+  box-shadow: 
+     0 4px 4px 0 rgba(0,0,0,0.12), 
+     0 4px 8px 0 rgba(0,0,0,0.24);
+  
+}

@@ -7,12 +7,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 
+	<!--import google maps and bootstrap stuff-->
+	<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 	<!-- get ng-app -->
 	<script src="app.js"></script>
 
 	<!-- grab scripts here (later on fix and use require)-->
 	<script src="directives/selectBox/selectBoxDrtv.js"></script>
 	<script src="directives/mdCard/mdCardDrtv.js"></script>
+	<script src="directives/locationPicker/locationPickerDrtv.js"></script>
 
 	<!-- import stylesheet -->
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -24,14 +30,17 @@
 	<!-- have a page container directive that holds the actual index ?-->
 	<!-- <p>{{foo}}</p> -->
 
-	<!-- test out component works -->
-	<rtv-card options="{header:'Test RTVMD Card'}">
-
-		<select-box></select-box>
-
-	</rtv-card>
-
+		
+	<!--location tag picker -->
+	<location-picker></location-picker>
 	
+		<br><br><br>
+
+
+	<!-- refactored md-card + select box-->
+	<rtv-card options="{header:'Test RTVMD Card'}">
+		<select-box></select-box>
+	</rtv-card>
 
 </body>
 </html>
