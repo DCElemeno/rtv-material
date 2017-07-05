@@ -9,6 +9,12 @@ angular.module('retrieve').directive('singleSelect', function() {
 		},
 		controllerAs: 'select',
 		controller: ['$scope', function($scope){
+			/*  PLANS:
+			 *	options:
+			 *		1. to open only down
+			 *		2. to make based on id, so could have multiple per page
+			 *		3. minimize the amount of jquery
+			*/
 			var _this = this;
 			_this.options = $scope.options;
 			_this.currentlySelected = [];
@@ -21,7 +27,7 @@ angular.module('retrieve').directive('singleSelect', function() {
 						_this.currentlySelected.push(_this.options[i].name);
 					}
 				}
-				$scope.selected = _this.currentlySelected.join();
+				$scope.selected = (_this.currentlySelected.length)? _this.currentlySelected[0] :'';
 
 			} 
 

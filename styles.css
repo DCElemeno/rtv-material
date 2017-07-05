@@ -348,9 +348,9 @@
 
 @media only screen and (min-width: 1008px) {
   .materialSelect .select {
-    transition: background 0.2s ease, border 0.2s ease, top 0.2s ease, height 0.2s ease, box-shadow 0.2s ease; }
+    transition: background 0.2s ease,  border 0.2s ease,  top 0.2s ease,  height 0.2s ease,    box-shadow 0.2s ease; }
     .materialSelect .select li {
-      transition: height 0.2s linear, opacity 0.2s ease, margin 0.2s linear; } }
+      transition: height 0.2s linear,  opacity 0.2s ease,  margin 0.2s linear; } }
 body {
   min-width: calc(100vw - 20px);
   min-height: 100vh;

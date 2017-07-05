@@ -128,13 +128,13 @@ angular.module('retrieve').directive('selectBox', function() {
 			            {
 			                var i = 1;
 			                selectTimeout = setInterval(function(){
-			                    i++; parent.scrollTo(pos, 50);
+			                    i++; /*parent.scrollTo(pos, 50);*/
 			                    if (i == 2) { parent.css('overflow', 'auto'); }
 			                    if (i >= 4) { clearTimeout(selectTimeout); }
 			                }, 100);
 			            }
 			            else {
-			                parent.css('overflow', 'auto').scrollTo(pos, 0);
+			                /*parent.css('overflow', 'auto').scrollTo(pos, 0);*/
 			            }
 			        }
 			    });

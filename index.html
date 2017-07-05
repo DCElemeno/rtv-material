@@ -9,8 +9,8 @@
 
 	<!--import google maps and bootstrap stuff-->
 	<!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
 
 	<!-- get ng-app -->
 	<script src="app.js"></script> 	
@@ -24,6 +24,9 @@
 	<!-- import stylesheet -->
 	<link rel="stylesheet" type="text/css" href="styles.css">
 
+	<style>
+		.primary-color { color:#1EC9E9; }
+	</style>
 
 </head>
 <body ng-app="retrieve" ng-controller="main">
@@ -40,18 +43,13 @@
 
 	<!-- refactored md-card + select box-->
 	<rtv-card options="{header:'Test RTVMD Card', margin:'100px'}">
-		<!-- <select-box></select-box> -->
+		<!-- <select-box></select-box>
 
-		<br>
+		<br> -->
 
 		<single-select 
 			selected="''"
 			options="[
-				{name:'Example 1', value:false},
-				{name:'Example 1', value:false},
-				{name:'Example 1', value:false},
-				{name:'Example 1', value:false},
-				{name:'Example 1', value:false},
 				{name:'Example 1', value:false},
 				{name:'Example 1', value:false},
 				{name:'Example 2', value:false},
