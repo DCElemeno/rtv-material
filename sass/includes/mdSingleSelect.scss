@@ -1,11 +1,9 @@
 $base: #303f9f;
-$accent: #E91E63;
+$accent: #1EC9E9;
 $error: #DD2C00;
 
-.container{
+.single-select-container{
     margin-top: 150px;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 .drop {
     display: block;
@@ -29,9 +27,9 @@ $error: #DD2C00;
     }
 }
 
-.materialSelect{
+.materialSingleSelect{
     height: 70px;
-    width:200px;
+    width:400px;
     position: relative;
     text-align: center;
     margin-bottom: 10px;
@@ -112,19 +110,10 @@ $error: #DD2C00;
             padding: 0 48px 0 24px;
             position: relative;
             overflow: hidden;
-            font-family:lato;
-            text-align:center;
             
-            &:before {
-              content: '';
-            }
-            &[data-value='default'] {
-              color:rgba(0,0,0,.73);
-            }
             &[data-selected] {
                 height: 48px;
             }
-            
             &:not([data-selected]) {
                 height: 0px;
                 opacity: 0;
@@ -148,14 +137,9 @@ $error: #DD2C00;
             li {
                 height: 48px;
                 opacity: 1;
-                text-align:right;
                 
                 &[data-selected] {
                     color: $accent;
-                }
-                &[data-selected]:before {
-                    content: '\2714';
-                    float:left;
                 }
                 &:hover {
                     background-color: #eeeeee;
@@ -196,10 +180,18 @@ $error: #DD2C00;
 @media only screen and (min-width: 1008px){
     .materialSelect{
         .select{
-            transition: background 0.2s ease, border 0.2s ease, top 0.2s ease, height 0.2s ease, box-shadow 0.2s ease;
+            transition: 
+                background 0.2s ease, 
+                border 0.2s ease, 
+                top 0.2s ease, 
+                height 0.2s ease,   
+                box-shadow 0.2s ease;
             
             li{
-                transition: height 0.2s linear, opacity 0.2s ease, margin 0.2s linear;
+                transition: 
+                    height 0.2s linear, 
+                    opacity 0.2s ease, 
+                    margin 0.2s linear;
             }
         }
     }

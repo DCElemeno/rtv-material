@@ -56,7 +56,7 @@ angular.module('retrieve').directive('locationPicker', function() {
 				    };
 				}();
 			$(function () {
-				$('.map-label button').hide();
+				 $('.map-label button').hide();
 			    var opt = {
 			        mapDiv: $('#divMap')[0],
 			        search: $("#search")[0]

@@ -1,3 +1,10 @@
 @import 'includes/selectBox';
 @import 'includes/mdCard';
-@import 'includes/locationPicker';
+/* @import 'includes/locationPicker'; */
+@import 'includes/mdSingleSelect';
+
+body{
+    min-width: calc(100vw - 20px);
+    min-height: 100vh;
+    background:#ddd; 
+}

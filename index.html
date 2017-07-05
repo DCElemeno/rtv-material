@@ -13,12 +13,13 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 	<!-- get ng-app -->
-	<script src="app.js"></script>
+	<script src="app.js"></script> 	
 
 	<!-- grab scripts here (later on fix and use require)-->
 	<script src="directives/selectBox/selectBoxDrtv.js"></script>
 	<script src="directives/mdCard/mdCardDrtv.js"></script>
-	<script src="directives/locationPicker/locationPickerDrtv.js"></script>
+	<!-- <script src="directives/locationPicker/locationPickerDrtv.js"></script> -->
+	<script src="directives/mdSingleSelect/singleSelectDrtv.js"></script>
 
 	<!-- import stylesheet -->
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -32,14 +33,24 @@
 
 		
 	<!--location tag picker -->
-	<location-picker></location-picker>
+	<!-- <location-picker></location-picker>
 	
-		<br><br><br>
+		<br><br><br> -->
 
 
 	<!-- refactored md-card + select box-->
-	<rtv-card options="{header:'Test RTVMD Card'}">
-		<select-box></select-box>
+	<rtv-card options="{header:'Test RTVMD Card', margin:'100px'}">
+		<!-- <select-box></select-box> -->
+
+		<br>
+
+		<single-select options="[
+				{name:'Example 1', value:false},
+				{name:'Example 1', value:false},
+				{name:'Example 2', value:false},
+				{name:'Example 3', value:false},
+			]"></single-select>
+
 	</rtv-card>
 
 </body>

@@ -1,10 +1,7 @@
-body {
-  min-width: calc(100vw - 20px);
-  min-height: 100vh; }
-
 .container {
   margin-top: 150px;
-  margin-left: 20px; }
+  margin-left: 20px;
+  margin-right: 20px; }
 
 .drop {
   display: block;
@@ -215,39 +212,148 @@ body {
   border: 1px solid rgba(0,0,0,0.12) !important;
 }
  */
-.map-card {
-  margin: 20px;
-  height: 512px;
-  width: 768px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 4px 8px 0 rgba(0, 0, 0, 0.24); }
-  .map-card .md-header {
-    height: 56px;
-    padding: 16px 24px; }
-    .map-card .md-header span {
-      height: 24px;
-      width: 217px;
-      color: #595959;
-      font-family: Lato;
-      font-size: 20px;
-      font-weight: 300;
-      line-height: 24px; }
-  .map-card .mapDivStyle {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    margin: 76px 28px;
-    overflow: hidden;
-    width: 768px;
-    height: 456px;
-    z-index: 0;
-    cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; }
+/* @import 'includes/locationPicker'; */
+.single-select-container {
+  margin-top: 150px; }
 
-.map-label {
-  margin-left: 50px;
-  width: 200px;
-  height: 140px;
-  padding: 20px;
-  overflow: wrap;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 4px 8px 0 rgba(0, 0, 0, 0.24); }
+.drop {
+  display: block;
+  position: absolute;
+  background: #CCC;
+  border-radius: 100%;
+  transform: scale(0);
+  pointer-events: none;
+  width: 100%;
+  height: 100%; }
+  .drop.animate {
+    animation: drop 1s ease-out; }
+
+@keyframes drop {
+  100% {
+    opacity: 0;
+    transform: scale(2.5); } }
+.materialSingleSelect {
+  height: 70px;
+  width: 400px;
+  position: relative;
+  text-align: center;
+  margin-bottom: 10px; }
+  .materialSingleSelect.error .select:not(.isOpen) {
+    border: 1px solid #DD2C00 !important; }
+  .materialSingleSelect.error .message {
+    display: block; }
+  .materialSingleSelect.inline {
+    float: none !important;
+    display: inline-block;
+    z-index: 0;
+    min-width: 100px; }
+    .materialSingleSelect.inline .select {
+      transform: translate(0, 0);
+      top: 0;
+      left: 0;
+      margin: 0;
+      transition: all 0.2s !important;
+      width: 100%; }
+      .materialSingleSelect.inline .select.isOpen {
+        transform: translate(0, -50%);
+        top: 50%; }
+  .materialSingleSelect:not(.inline) {
+    width: 100%; }
+    .materialSingleSelect:not(.inline) .select {
+      width: 100%;
+      margin-left: 50%;
+      transform: translate(-50%, 0); }
+  .materialSingleSelect .select {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: -1px;
+    user-select: none;
+    width: 250px;
+    text-align: center;
+    margin: 0px auto;
+    z-index: 9999;
+    height: 48px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    box-shadow: 0 0 0 0 transparent;
+    background-color: #fff;
+    margin-left: 0;
+    transform: none; }
+    .materialSingleSelect .select:after {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #bbbbbb;
+      content: '';
+      display: block;
+      height: 0px;
+      position: absolute;
+      pointer-events: none;
+      top: 19px;
+      right: 10px;
+      width: 0px; }
+    .materialSingleSelect .select li {
+      cursor: pointer;
+      font-size: 15px;
+      list-style: none;
+      line-height: 48px;
+      padding: 0 48px 0 24px;
+      position: relative;
+      overflow: hidden; }
+      .materialSingleSelect .select li[data-selected] {
+        height: 48px; }
+      .materialSingleSelect .select li:not([data-selected]) {
+        height: 0px;
+        opacity: 0; }
+    .materialSingleSelect .select.isOpen {
+      background-color: #fafafa;
+      border-radius: 2px;
+      box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.3);
+      padding-bottom: 16px;
+      top: -96px;
+      height: 250px;
+      z-index: 99999; }
+      .materialSingleSelect .select.isOpen:after {
+        display: none; }
+      .materialSingleSelect .select.isOpen:before {
+        border-color: transparent !important; }
+      .materialSingleSelect .select.isOpen li {
+        height: 48px;
+        opacity: 1; }
+        .materialSingleSelect .select.isOpen li[data-selected] {
+          color: #1EC9E9; }
+        .materialSingleSelect .select.isOpen li:hover {
+          background-color: #eeeeee; }
+        .materialSingleSelect .select.isOpen li:active {
+          background-color: #dbdbdb; }
+    .materialSingleSelect .select:not(.isOpen):hover {
+      background-color: #f7f7f7;
+      border-top: 1px solid #CDCDCD;
+      border-bottom: 1px solid #CDCDCD; }
+    .materialSingleSelect .select:not(.isOpen):active {
+      box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.3); }
+    .materialSingleSelect .select + .select:before {
+      border-left: thin solid #c8c8c8;
+      content: '';
+      height: 32px;
+      left: 0;
+      position: absolute;
+      top: 8px; }
+  .materialSingleSelect .message {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    color: #DD2C00;
+    display: none; }
+
+@media only screen and (min-width: 1008px) {
+  .materialSelect .select {
+    transition: background 0.2s ease, border 0.2s ease, top 0.2s ease, height 0.2s ease, box-shadow 0.2s ease; }
+    .materialSelect .select li {
+      transition: height 0.2s linear, opacity 0.2s ease, margin 0.2s linear; } }
+body {
+  min-width: calc(100vw - 20px);
+  min-height: 100vh;
+  background: #ddd; }
 
 /*# sourceMappingURL=styles.css.map */

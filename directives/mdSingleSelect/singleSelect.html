@@ -1,0 +1,15 @@
+<p>{{select.currentlySelected.join()}}</p><br><br>
+
+<div class="single-select-container">
+  <div class="col-xs-5 materialSingleSelect inline empty">
+    <ul class="select">
+      <li data-selected="true">Choose something...</li>
+      <li ng-repeat="option in select.options"
+          data-selected="{{option.value}}"
+          ng-click="select.updateOptions(option)">
+          {{option.name}}
+      </li>
+    </ul>
+    <div class="message">Please select something</div>
+  </div>
+</div>
