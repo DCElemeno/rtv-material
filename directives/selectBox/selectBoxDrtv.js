@@ -3,31 +3,49 @@ angular.module('retrieve').directive('selectBox', function() {
 	return {
 		restrict: 'E',
 		templateUrl: 'directives/selectBox/selectBox.html',
-		scope: { 
-			options: '<', 
-			selected: "=" 
-		},
 		controllerAs: 'select',
 		controller: ['$scope', function($scope){
+			/*  PLANS:
+			 *	options:
+			 *		1. to open only down
+			 *		2. to have a submit button
+			 *		3. multiselect vs single select
+			 *		4. search input
+			 *	maybe try to minimize the amount of jquery?
+			*/
 			var _this = this;
-			_this.options = $scope.options;
-			_this.currentlySelected = [];
+
+			//define some test case stuff 
+			//(later will be passed through scope)
+			_this.options = [
+				{name:'Example 1', value:false},
+				{name:'Example 2', value:false},
+				{name:'Example 3', value:false},
+			];
 
 			//updates the currently selected choices
 			function refreshOptions() {
-				for (var i=0; i < _this.options.length; i++) {
-					if (_this.options[i].value) {
-						_this.currentlySelected.push(_this.options[i].name);
+				_this.currentlySelected = [];
+				angular.forEach(_this.options, function(option){
+					if (option.value) {
+						_this.currentlySelected.push(option.name);
 					}
-				}
-				$scope.selected = _this.currentlySelected.join();
-
+				});
 			} 
 
 			//update value clicked and refresh selected
 			refreshOptions();
 			_this.updateOptions = function(option) {
 				option.value = !option.value;
+				refreshOptions();
+
+			};
+
+			//clear selections
+			_this.clearSelections = function() {
+				angular.forEach(_this.options, function(option){
+					option.value = false;
+				});
 				refreshOptions();
 			};
 

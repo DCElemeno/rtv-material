@@ -3,44 +3,39 @@ angular.module('retrieve').directive('singleSelect', function() {
 	return {
 		restrict: 'E',
 		templateUrl: 'directives/mdSingleSelect/singleSelect.html',
+		scope: { 
+			options: '=', 
+			selected: "=" 
+		},
 		controllerAs: 'select',
 		controller: ['$scope', function($scope){
-
 			var _this = this;
+			_this.options = $scope.options;
+			_this.currentlySelected = [];
 
-			_this.options = [
-				{name:'Example 1', value:false},
-				{name:'Example 2', value:false},
-				{name:'Example 3', value:false},
-			];
-
+			//updates the currently selected choices
 			function refreshOptions() {
 				_this.currentlySelected = [];
-				angular.forEach(_this.options, function(option){
-					if (option.value) {
-						_this.currentlySelected.push(option.name);
+				for (var i=0; i < _this.options.length; i++) {
+					if (_this.options[i].value) {
+						_this.currentlySelected.push(_this.options[i].name);
 					}
-				});
+				}
+				$scope.selected = _this.currentlySelected.join();
+
 			} 
 
-			//clear current selection
+			//update value clicked and refresh selected
 			refreshOptions();
 			_this.updateOptions = function(option) {
 				option.value = !option.value;
 				refreshOptions();
 			};
 
-			//clear selections
-			_this.clearSelections = function() {
-				angular.forEach(_this.options, function(option){
-					option.value = false;
-				});
-				refreshOptions();
-			};
-
 		}],
 		link: function(scope, elem, attrs, ctrl) {
 
+			//overall function initially called
 			$(function() {
 			  var closeSelectTimeout;
 			
@@ -56,6 +51,7 @@ angular.module('retrieve').directive('singleSelect', function() {
 			    }, 200);
 			  }
 
+			  //opening animation
 			  $(document.body).on('mousedown', '.materialBtn, .select li', function(event) {
 			    if (parseFloat($(this).css('opacity')) > 0 && $(document).width() >= 1008) {
 			      var maxWidthHeight = Math.max($(this).width(), $(this).height());
@@ -104,8 +100,7 @@ angular.module('retrieve').directive('singleSelect', function() {
 			      if ($(document).width() >= 1008) {
 			        var i = 1;
 			        selectTimeout = setInterval(function() {
-			          i++;
-			          parent.scrollTo(pos, 50);
+			          i++; 
 			          if (i == 2) {
 			            parent.css('overflow', 'auto');
 			          }
@@ -113,8 +108,6 @@ angular.module('retrieve').directive('singleSelect', function() {
 			            clearTimeout(selectTimeout);
 			          }
 			        }, 100);
-			      } else {
-			        parent.css('overflow', 'auto').scrollTo(pos, 0);
 			      }
 			    }
 			  });
