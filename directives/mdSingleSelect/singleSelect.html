@@ -1,15 +1,21 @@
+<style type="text/css">  
+    .materialSingleSelect .mdSingleSelect.isOpen li[data-selected] {
+        color:#1EC9E9;
+    }
+</style>
+
 <p>{{selected}}</p><br><br>
 
 <div class="single-select-container">
-  <div class="materialSingleSelect inline empty">
-    <ul class="select select{{currentid}}">
-      <li data-selected="true">Choose something...</li>
-      <li ng-repeat="option in select.options"
-          data-selected="{{option.value}}"
-          ng-click="select.updateOptions(option)">
-          {{option.name}}
-      </li>
-    </ul>
-    <div class="message">Please select something</div>
-  </div>
+    <div class="materialSingleSelect inline empty">
+        <ul class="mdSingleSelect select{{currentid}}">
+            <li data-selected="true">{{placeholder}}</li>
+            <li ng-repeat="option in select.options"
+                data-selected="{{option.value}}"
+                ng-click="select.updateOptions(option)">
+                {{option.name}}
+            </li>
+        </ul>
+        <div class="message">Please select something</div>
+    </div>
 </div>

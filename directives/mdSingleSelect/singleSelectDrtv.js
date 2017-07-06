@@ -6,15 +6,15 @@ angular.module('retrieve').directive('singleSelect', function() {
 		scope: { 
 			options: '=', 
 			selected: "=",
-			currentid: "=" 
+			currentid: "=",
+			placeholder: '<'
 		},
 		controllerAs: 'select',
 		controller: ['$scope', function($scope){
 			/*  PLANS:
 			 *	options:
 			 *		1. to open only down
-			 *		done to make based on id, so could have multiple per page
-			 *		3. minimize the amount of jquery
+			 *		2. minimize the amount of jquery
 			*/
 			var _this = this;
 			_this.options = $scope.options;
@@ -22,13 +22,13 @@ angular.module('retrieve').directive('singleSelect', function() {
 
 			//updates the currently selected choices
 			function refreshOptions() {
-				_this.currentlySelected = [];
 				for (var i=0; i < _this.options.length; i++) {
 					if (_this.options[i].value) {
-						_this.currentlySelected.push(_this.options[i].name);
+						_this.currentlySelected.unshift(_this.options[i].name);
 					}
 				}
 				$scope.selected = (_this.currentlySelected.length)? _this.currentlySelected[0] :'';
+				_this.currentlySelected.length = 1;
 
 			} 
 
@@ -57,7 +57,6 @@ angular.module('retrieve').directive('singleSelect', function() {
 
 			  	//opening animation
 			  	$('.select'+scope.currentid+' li').click(function(event) {
-			  		console.info("called opening animation " + scope.currentid);
 			  	  	if (parseFloat($(this).css('opacity')) > 0 && $(document).width() >= 1008) {
 			  	    	var maxWidthHeight = Math.max($(this).width(), $(this).height());
 			  	    	if ($(this).find("b.drop").length == 0 || $(this).find("b.drop").css('opacity') != 1) {
@@ -119,10 +118,11 @@ angular.module('retrieve').directive('singleSelect', function() {
 			  	  		$(e.target).parent().hasClass('select'+scope.currentid)) {
 			  	  	  	hideMaterialList($('.select'+scope.currentid).not(clicked));
 			  	  	} else {
-			  	  	  	if ($('.select').hasClass('isOpen')) {
+			  	  	  	if ($('.select'+scope.currentid).hasClass('isOpen')) {
 			  	  	    	hideMaterialList($('.select'+scope.currentid));
-			  	  	  	}
+			  	  	  	} 
 			  	  	}
+
 			  	});
 			  	hideMaterialList($('.select'+scope.currentid));
 			})

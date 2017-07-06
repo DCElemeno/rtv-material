@@ -1,5 +1,4 @@
 $base: #303f9f;
-$accent: #1EC9E9;
 $error: #DD2C00;
 
 .single-select-container{
@@ -33,9 +32,9 @@ $error: #DD2C00;
     position: relative;
     text-align: center;
     margin-bottom: 10px;
-    
+
     &.error {
-        .select:not(.isOpen){
+        .mdSingleSelect:not(.isOpen){
             border: 1px solid $error !important;
         }
         .message {
@@ -48,12 +47,12 @@ $error: #DD2C00;
         z-index: 0;
         min-width: 100px;
 
-        .select{
+        .mdSingleSelect{
             transform: translate(0, 0);
             top: 0;
             left: 0;
             margin: 0;
-            transition: all 0.2s !important;
+            transition: all 0.1s !important;
             width: 100%;
 
             &.isOpen{
@@ -65,13 +64,13 @@ $error: #DD2C00;
     &:not(.inline){
         width: 100%;
 
-        .select{
+        .mdSingleSelect{
             width: 100%;
             margin-left: 50%;
             transform: translate(-50%, 0);
         }
     }
-    .select {
+    .mdSingleSelect {
         position: absolute;
         margin: 0;
         padding: 0;
@@ -111,9 +110,7 @@ $error: #DD2C00;
             position: relative;
             overflow: hidden;
             
-            &[data-selected] {
-                height: 48px;
-            }
+            &[data-selected] {height: 48px;}
             &:not([data-selected]) {
                 height: 0px;
                 opacity: 0;
@@ -137,29 +134,21 @@ $error: #DD2C00;
             li {
                 height: 48px;
                 opacity: 1;
-                
-                &[data-selected] {
-                    color: $accent;
-                }
-                &:hover {
-                    background-color: #eeeeee;
-                }
-                &:active {
-                    background-color: #dbdbdb;
-                }
+                &:hover {background-color: #eeeeee;}
+                &:active {background-color: #dbdbdb;}
             }
         }
         &:not(.isOpen) {
             &:hover {
                 background-color: #f7f7f7;
-                border-top: 1px solid #CDCDCD;
-                border-bottom: 1px solid #CDCDCD;
+                /* border-top: 1px solid #CDCDCD; */
+                /* border-bottom: 1px solid #CDCDCD; */
             }
             &:active{
                 box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.3);
             }
         }
-        + .select:before {
+        + .mdSingleSelect:before {
             border-left: thin solid #c8c8c8;
             content: '';
             height: 32px;
@@ -178,8 +167,8 @@ $error: #DD2C00;
 }
 
 @media only screen and (min-width: 1008px){
-    .materialSelect{
-        .select{
+    .materialSingleSelect{
+        .mdSingleSelect{
             transition: 
                 background 0.2s ease, 
                 border 0.2s ease, 
