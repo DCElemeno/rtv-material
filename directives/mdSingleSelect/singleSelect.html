@@ -2,7 +2,7 @@
 
 <div class="single-select-container">
   <div class="materialSingleSelect inline empty">
-    <ul class="select">
+    <ul class="select select{{currentid}}">
       <li data-selected="true">Choose something...</li>
       <li ng-repeat="option in select.options"
           data-selected="{{option.value}}"
